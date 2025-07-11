@@ -1,8 +1,13 @@
-# Use official Nginx image
+# Use official nginx image
 FROM nginx:alpine
 
-# Copy custom static website files into nginx's public directory
-COPY public/ /usr/share/nginx/html/
+# Remove default nginx static files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy your frontend files into nginx html folder
+COPY . /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
+
+
