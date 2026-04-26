@@ -65,7 +65,7 @@ pipeline {
 
         stage('Health Check') {
             steps {
-                sh 'sleep 5 && curl -f http://localhost:${PORT} || exit 1'
+                sh 'sleep 5 && curl -f http://13.218.198.227:${PORT} || exit 1'
             }
         }
     }
