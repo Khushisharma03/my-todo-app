@@ -25,14 +25,15 @@ GitHub → Jenkins Pipeline → Docker Build → Docker Hub → EC2 Deployment �
 
 ##  CI/CD Pipeline Flow
 
-1. Code is pushed to GitHub
-2. Jenkins pulls the latest code
-3. Docker image is built using Dockerfile
-4. Image is tagged using build number
-5. Image is pushed to Docker Hub
-6. Existing container is stopped and removed
-7. New container is deployed on EC2
-8. Health check verifies the deployment
+1. Code is pushed to GitHub  
+2. GitHub Webhook triggers Jenkins pipeline automatically  
+3. Jenkins pulls the latest code  
+4. Docker image is built using Dockerfile  
+5. Image is tagged using build number  
+6. Image is pushed to Docker Hub  
+7. Existing container is stopped and removed  
+8. New container is deployed on EC2  
+9. Health check verifies the deployment 
 
 ---
 
@@ -43,6 +44,12 @@ GitHub → Jenkins Pipeline → Docker Build → Docker Hub → EC2 Deployment �
 - Port mapping: `3000 → 80`
 
 ---
+
+## Trigger Mechanism
+
+- CI/CD pipeline is triggered automatically using GitHub Webhooks
+- Jenkins is configured with "GitHub hook trigger for GITScm polling"
+- Every push to the main branch triggers a new build
 
 ##  Security
 
