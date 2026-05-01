@@ -72,7 +72,7 @@ pipeline {
 
     post {
         success {
-            echo "App is live at: http://13.218.198.227:${PORT}"
+            echo "App is live"
         }
         failure {
             echo " Build/Deploy failed. Logs:"
